@@ -1,20 +1,21 @@
 import { KeyValuePair } from "../components/json-explorer";
+import { Bracket } from "../constants";
 
 export const getObjectOrArrayBracket = (
     value: any[] | KeyValuePair,
     openingBracket: boolean
-) => {
-    let bracket = "[";
+): Bracket => {
+    let bracket = Bracket.ArrayOpen;
     const isArray = value.constructor === Array;
 
     if (isArray && !openingBracket) {
-        bracket = "],";
+        bracket = Bracket.ArrayClose;
     }
     if (!isArray && openingBracket) {
-        bracket = "{";
+        bracket = Bracket.ObjectOpen;
     }
     if (!isArray && !openingBracket) {
-        bracket = "},";
+        bracket = Bracket.ObjectClose;
     }
     return bracket;
 };
