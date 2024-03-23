@@ -1,30 +1,27 @@
-//import { useState } from "react";
 import "./json-explorer.css";
-//import { tabSpacing } from "../styling-constants";
 import { valueDisplayConverter } from "../utils/value-display-converter";
-
-// interface JSONData<T> {
-//     [key: string]: any;
-// }
-
-// type Props<T> = {
-//     json: JSONData<T>; // Accepts a JSONData object with a generic type
-// };
+import { rootPath } from "../constants";
 
 type Props = {
     json: {
         [key: string]: any;
     };
-    setSelectedProperty: React.Dispatch<
-        React.SetStateAction<string | undefined>
-    >;
+    selectedPath: string;
+    setSelectedProperty: React.Dispatch<React.SetStateAction<string>>;
+    setSelectedPath: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export const JsonExplorer = ({ json, setSelectedProperty }: Props) => {
+export const JsonExplorer = ({
+    json,
+    selectedPath,
+    setSelectedProperty,
+    setSelectedPath,
+}: Props) => {
     const entries = Object.entries(json);
 
-    const handleKeyClick = (value: string | number | boolean) => {
+    const handleKeyClick = (value: string | number | boolean, key: string) => {
         setSelectedProperty(value.toString());
+        setSelectedPath(`${rootPath}${key}`);
     };
 
     return (
@@ -37,7 +34,9 @@ export const JsonExplorer = ({ json, setSelectedProperty }: Props) => {
                             {
                                 <JsonExplorer
                                     json={value}
+                                    selectedPath={selectedPath}
                                     setSelectedProperty={setSelectedProperty}
+                                    setSelectedPath={setSelectedPath}
                                 />
                             }
                         </>
@@ -45,10 +44,9 @@ export const JsonExplorer = ({ json, setSelectedProperty }: Props) => {
                         <span>
                             {"\n"}
                             <span
-                                onClick={() => handleKeyClick(value)}
+                                onClick={() => handleKeyClick(value, key)}
                                 className="clickable"
                             >
-                                {/* {Number.isNaN(parseInt(key)) && `${key}:`} */}
                                 {`${key}:`}
                             </span>
 

@@ -1,5 +1,3 @@
-import { singleSpacing } from "../styling-constants";
-
 export const valueDisplayConverter = (
     value: boolean | string | number
 ): string => {
@@ -11,11 +9,11 @@ export const valueDisplayConverter = (
     const shouldBeDisplayedAsString = typeof value === "string";
 
     if (shouldBeConverted) {
-        valueDisplay = `${singleSpacing}${value.toString()},`;
+        valueDisplay = ` ${value.toString()},`;
     }
 
     if (shouldBeDisplayedAsString) {
-        valueDisplay = `${singleSpacing}'${value}',`;
+        valueDisplay = ` '${value}',`;
     }
     return valueDisplay;
 };

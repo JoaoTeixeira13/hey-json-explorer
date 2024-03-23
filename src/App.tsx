@@ -1,36 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { JsonExplorer } from "./components/json-explorer";
 import demoData from "./demo-data.json";
-import secondDemoData from "./second-demo-data.json";
+//import secondDemoData from "./second-demo-data.json";
+import { readJsonProperties } from "./utils/read-json-properties";
+import { rootPath, undefinedDisplay } from "./constants";
 
 function App() {
-    const [selectedProperty, setSelectedProperty] = useState<
-        string | undefined
-    >(undefined);
+    //for experiment with different data types we can initialize our json here
+    //for an alternativite test case initialize the json as 'secondDemoData
+
+    const [json] = useState<{
+        [key: string]: any;
+    }>(demoData);
+
+    const [selectedProperty, setSelectedProperty] = useState<string>("");
+
+    const [selectedPath, setSelectedPath] = useState<string>(rootPath);
+    const [searchValue, setSearchValue] = useState<string>("");
+
+    useEffect(() => {
+        searchValue.length < 4 && setSelectedProperty(undefinedDisplay);
+        searchValue === "" && setSelectedProperty("");
+
+        if (searchValue.startsWith(rootPath)) {
+            const searchPath = searchValue.replace(rootPath, "");
+            const foundResult = readJsonProperties(json, searchPath);
+
+            setSelectedProperty(foundResult ?? undefinedDisplay);
+        }
+    }, [searchValue]);
+
     return (
         <>
             <div className="input-area">
                 <p>Property</p>
-                <input></input>
-                <p>{selectedProperty ?? "undefined"}</p>
+                <input
+                    onChange={(e) => {
+                        setSelectedPath(e.target.value);
+                        setSearchValue(e.target.value);
+                    }}
+                />
+                {selectedProperty && <p>{selectedProperty}</p>}
             </div>
 
             <p>Response</p>
             <div className="explorer-container">
                 <JsonExplorer
-                    json={demoData}
+                    json={json}
+                    selectedPath={selectedPath}
                     setSelectedProperty={setSelectedProperty}
+                    setSelectedPath={setSelectedPath}
                 />
             </div>
-
-            {/* <p>Response</p>
-            <div className="explorer-container">
-                <JsonExplorer
-                    json={secondDemoData}
-                    setSelectedProperty={setSelectedProperty}
-                />
-            </div> */}
         </>
     );
 }
