@@ -1,11 +1,8 @@
 //solution based on https://stackoverflow.com/questions/55119963/why-can-i-access-object-property-with-an-array
 
-export const readJsonProperties = (
-    json: {
-        [key: string]: any;
-    },
-    string: string
-) => {
+import { KeyValuePair } from "../components/json-explorer";
+
+export const readJsonProperties = (json: KeyValuePair, string: string) => {
     let returnValue = "undefined";
     let jsonCopy = { ...json };
 

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { JsonExplorer } from "./components/json-explorer";
+import { JsonExplorer, KeyValuePair } from "./components/json-explorer";
 import demoData from "./demo-data.json";
-//import secondDemoData from "./second-demo-data.json";
+import secondDemoData from "./second-demo-data.json";
 import { readJsonProperties } from "./utils/read-json-properties";
 import { rootPath, undefinedDisplay } from "./constants";
 
@@ -10,9 +10,7 @@ function App() {
     //for experiment with different data types we can initialize our json here
     //for an alternativite test case initialize the json as 'secondDemoData
 
-    const [json] = useState<{
-        [key: string]: any;
-    }>(demoData);
+    const [json] = useState<KeyValuePair>(secondDemoData);
 
     const [selectedProperty, setSelectedProperty] = useState<string>("");
 

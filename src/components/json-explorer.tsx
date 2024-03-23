@@ -1,11 +1,14 @@
 import "./json-explorer.css";
 import { valueDisplayConverter } from "../utils/value-display-converter";
 import { rootPath } from "../constants";
+import { getObjectOrArrayBracket } from "../utils/get-object-or-array-bracket";
+
+export type KeyValuePair = {
+    [key: string]: any;
+};
 
 type Props = {
-    json: {
-        [key: string]: any;
-    };
+    json: KeyValuePair;
     selectedPath: string;
     setSelectedProperty: React.Dispatch<React.SetStateAction<string>>;
     setSelectedPath: React.Dispatch<React.SetStateAction<string>>;
@@ -25,12 +28,15 @@ export const JsonExplorer = ({
     };
 
     return (
-        <>
+        <pre>
             {entries.map(([key, value]) => (
                 <span key={key} className="display-linebreak">
                     {typeof value === "object" ? (
                         <>
                             {Number.isNaN(parseInt(key)) && `\n${key}:`}
+
+                            <span>{getObjectOrArrayBracket(value, true)}</span>
+
                             {
                                 <JsonExplorer
                                     json={value}
@@ -39,6 +45,7 @@ export const JsonExplorer = ({
                                     setSelectedPath={setSelectedPath}
                                 />
                             }
+                            <span>{getObjectOrArrayBracket(value, false)}</span>
                         </>
                     ) : (
                         <span>
@@ -55,6 +62,6 @@ export const JsonExplorer = ({
                     )}
                 </span>
             ))}
-        </>
+        </pre>
     );
 };
