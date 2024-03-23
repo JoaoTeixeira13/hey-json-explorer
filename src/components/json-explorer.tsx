@@ -1,7 +1,6 @@
 import "./json-explorer.css";
-import { valueDisplayConverter } from "../utils/value-display-converter";
-import { getObjectOrArrayBracket } from "../utils/get-object-or-array-bracket";
-import { isKeyNotIndex } from "../utils/is-key-index";
+import { NestedElement } from "./nested-element";
+import { InlineElement } from "./inline-element";
 
 export type KeyValuePair = {
     [key: string]: any;
@@ -32,38 +31,21 @@ export const JsonExplorer = ({
             {entries.map(([key, value]) => (
                 <span key={key} className="display-linebreak">
                     {typeof value === "object" ? (
-                        <>
-                            {isKeyNotIndex(key) && `${key}:`}
-
-                            <span>{getObjectOrArrayBracket(value, true)}</span>
-
-                            {
-                                <JsonExplorer
-                                    json={value}
-                                    selectedPath={`${selectedPath}${
-                                        isKeyNotIndex(key)
-                                            ? `.${key}`
-                                            : `[${key}]`
-                                    }`}
-                                    setSelectedProperty={setSelectedProperty}
-                                    setSelectedPath={setSelectedPath}
-                                />
-                            }
-                            <span>{getObjectOrArrayBracket(value, false)}</span>
-                        </>
+                        <NestedElement
+                            value={value}
+                            keyValue={key}
+                            selectedPath={selectedPath}
+                            setSelectedPath={setSelectedPath}
+                            setSelectedProperty={setSelectedProperty}
+                        />
                     ) : (
                         // Arrays of primitive values are not clickable,
                         //but searchable (out of scope)
-                        <span>
-                            <span
-                                onClick={() => handleKeyClick(value, key)}
-                                className="clickable"
-                            >
-                                {isKeyNotIndex(key) && `${key}:`}
-                            </span>
-
-                            <span>{valueDisplayConverter(value)}</span>
-                        </span>
+                        <InlineElement
+                            value={value}
+                            keyValue={key}
+                            handleKeyClick={handleKeyClick}
+                        />
                     )}
                 </span>
             ))}
