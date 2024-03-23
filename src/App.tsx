@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { JsonExplorer, KeyValuePair } from "./components/json-explorer";
 import demoData from "./test-data/demo-data.json";
-import secondDemoData from "./test-data/second-demo-data.json";
+//import secondDemoData from "./test-data/second-demo-data.json";
 import { readJsonProperties } from "./utils/read-json-properties";
 import { initialSearchValue, rootPath, undefinedDisplay } from "./constants";
 
 function App() {
-    //for experiment with different data types we can initialize our json here
-    //for an alternativite test case initialize the json as 'secondDemoData
+    //to experiment with different data types we can initialize our json here
+    //for an alternativite test case initialize the json as 'secondDemoData', further indention, data types, etc
 
     const [json] = useState<KeyValuePair>(demoData);
 
@@ -35,17 +35,26 @@ function App() {
 
     return (
         <>
-            <div className="input-area">
-                <p>Property</p>
-                <input
-                    value={searchValue}
-                    onChange={(e) => {
-                        setSelectedPath(e.target.value);
-                        setSearchValue(e.target.value);
-                    }}
-                />
-                {selectedProperty && <p>{selectedProperty}</p>}
-            </div>
+            <section className="input-group">
+                <div>
+                    <p>Property</p>
+                    <input
+                        value={searchValue}
+                        onChange={(e) => {
+                            setSelectedPath(e.target.value);
+                            setSearchValue(e.target.value);
+                        }}
+                    />
+                    {<p className="display-result">{selectedProperty}</p>}
+                </div>
+                <div>
+                    <p>Block / Variable</p>
+                    <input placeholder="Variable" /> {" -"}
+                </div>
+            </section>
+
+            <h4>+ Assign to variable</h4>
+            <h4>+ Assign to block</h4>
 
             <p>Response</p>
             <div className="explorer-container">

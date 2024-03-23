@@ -11,6 +11,24 @@ body {
     border-radius: 1rem;
     padding: 1rem 0 1rem 0;
 }
-.inputArea {
-    display: block;
+input {
+    width: 40vw;
+    height: 1rem;
+    padding: 1rem;
+    border: 1px solid lightgray;
+    border-radius: 0.25rem;
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.display-result {
+    height: 2rem;
+}
+h4 {
+    margin: 0 0 2rem 3rem;
+    font-weight: 600;
 }
