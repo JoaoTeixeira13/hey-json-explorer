@@ -8,7 +8,7 @@
         "city": "Hamburg",
         "country": "Germany"
     },
-    "employees":[
+    "employees": [
         {
             "id": 1,
             "name": "John Doe",
@@ -63,7 +63,8 @@
                     "description": "Forecasting budget requirements for the upcoming fiscal year",
                     "status": "Pending"
                 }
-            ]
+            ],
+            "grades": [5, 6, 7, 8, 89]
         }
     ]
 }
