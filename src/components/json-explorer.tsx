@@ -15,18 +15,16 @@ type Props = {
     json: {
         [key: string]: any;
     };
+    setSelectedProperty: React.Dispatch<
+        React.SetStateAction<string | undefined>
+    >;
 };
 
-export const JsonExplorer = ({ json }: Props) => {
+export const JsonExplorer = ({ json, setSelectedProperty }: Props) => {
     const entries = Object.entries(json);
 
-    const handleKeyClick = (key: string, value: any) => {
-        console.log(
-            "clicked on following key:",
-            key,
-            "with following value:",
-            value
-        );
+    const handleKeyClick = (value: string | number | boolean) => {
+        setSelectedProperty(value.toString());
     };
 
     return (
@@ -36,13 +34,18 @@ export const JsonExplorer = ({ json }: Props) => {
                     {typeof value === "object" ? (
                         <>
                             {Number.isNaN(parseInt(key)) && `\n${key}:`}
-                            {<JsonExplorer json={value} />}
+                            {
+                                <JsonExplorer
+                                    json={value}
+                                    setSelectedProperty={setSelectedProperty}
+                                />
+                            }
                         </>
                     ) : (
                         <span>
                             {"\n"}
                             <span
-                                onClick={() => handleKeyClick(key, value)}
+                                onClick={() => handleKeyClick(value)}
                                 className="clickable"
                             >
                                 {/* {Number.isNaN(parseInt(key)) && `${key}:`} */}
