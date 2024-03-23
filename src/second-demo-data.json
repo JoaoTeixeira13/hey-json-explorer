@@ -1,0 +1,69 @@
+{
+    "date": "2021-10-27T07:49:14.896Z",
+    "isHiring": true,
+    "address": {
+        "street": "Jungfernstieg",
+        "number": 49,
+        "zipCode": 20354,
+        "city": "Hamburg",
+        "country": "Germany"
+    },
+    "employees":[
+        {
+            "id": 1,
+            "name": "John Doe",
+            "age": 35,
+            "department": "Engineering",
+            "skills": ["JavaScript", "React", "Node.js"],
+            "projects": [
+                {
+                    "name": "Project X",
+                    "description": "Developing a new feature for the company's flagship product",
+                    "status": "In Progress"
+                },
+                {
+                    "name": "Project Y",
+                    "description": "Implementing a performance optimization strategy",
+                    "status": "Completed"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "age": 28,
+            "department": "Marketing",
+            "skills": [
+                "Marketing Strategy",
+                "Social Media Management",
+                "Content Creation"
+            ],
+            "projects": [
+                {
+                    "name": "Marketing Campaign 2024",
+                    "description": "Planning and executing a marketing campaign for the new product launch",
+                    "status": "Pending"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Michael Johnson",
+            "age": 40,
+            "department": "Finance",
+            "skills": ["Financial Analysis", "Budgeting", "Risk Management"],
+            "projects": [
+                {
+                    "name": "Quarterly Financial Report",
+                    "description": "Preparing financial statements and analysis for the quarterly report",
+                    "status": "In Progress"
+                },
+                {
+                    "name": "Budget Forecasting",
+                    "description": "Forecasting budget requirements for the upcoming fiscal year",
+                    "status": "Pending"
+                }
+            ]
+        }
+    ]
+}

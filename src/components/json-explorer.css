@@ -1,0 +1,11 @@
+.display-linebreak {
+    display: block;
+    padding-left: 1rem;
+}
+.clickable {
+    cursor: pointer;
+    color: blue;
+}
+.indented {
+    margin-left: 4rem;
+}

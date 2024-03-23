@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { JsonExplorer } from "./components/json-explorer";
+import demoData from "./demo-data.json";
+import secondDemoData from "./second-demo-data.json";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <p>Response</p>
+            <div className="explorer-container">
+                <JsonExplorer json={demoData} />
+            </div>
+
+            <p>Response</p>
+            <div className="explorer-container">
+                <JsonExplorer json={secondDemoData} />
+            </div>
+        </>
+    );
 }
 
 export default App;
