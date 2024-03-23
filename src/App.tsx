@@ -10,7 +10,7 @@ function App() {
     //for experiment with different data types we can initialize our json here
     //for an alternativite test case initialize the json as 'secondDemoData
 
-    const [json] = useState<KeyValuePair>(secondDemoData);
+    const [json] = useState<KeyValuePair>(demoData);
 
     const [selectedProperty, setSelectedProperty] = useState<string>("");
 

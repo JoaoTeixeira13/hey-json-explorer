@@ -6,15 +6,11 @@
     cursor: pointer;
     color: blue;
 }
-.indented {
-    margin-left: 4rem;
-}
 pre {
-    line-height: 0.7;
-    margin-top: 0.6rem;
-    margin-bottom: 0.6rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 span {
-    margin-top: 0.6rem;
-    margin-bottom: 0.6rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
 }

@@ -33,7 +33,7 @@ export const JsonExplorer = ({
                 <span key={key} className="display-linebreak">
                     {typeof value === "object" ? (
                         <>
-                            {Number.isNaN(parseInt(key)) && `\n${key}:`}
+                            {Number.isNaN(parseInt(key)) && `${key}:`}
 
                             <span>{getObjectOrArrayBracket(value, true)}</span>
 
@@ -49,7 +49,6 @@ export const JsonExplorer = ({
                         </>
                     ) : (
                         <span>
-                            {"\n"}
                             <span
                                 onClick={() => handleKeyClick(value, key)}
                                 className="clickable"
