@@ -1,9 +1,10 @@
 //solution based on https://stackoverflow.com/questions/55119963/why-can-i-access-object-property-with-an-array
 
 import { KeyValuePair } from "../components/json-explorer";
+import { undefinedDisplay } from "../constants";
 
 export const readJsonProperties = (json: KeyValuePair, string: string) => {
-    let returnValue = "undefined";
+    let returnValue = undefinedDisplay;
     let jsonCopy = { ...json };
 
     string = string.replace(/\[(\w+)\]/g, ".$1"); // convert indexes to properties
