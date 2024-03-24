@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { JsonChallenge } from "./json-challenge/components/json-challenge";
+import { JsonChallenge } from "./components/json-challenge";
 
 function App() {
     return (
