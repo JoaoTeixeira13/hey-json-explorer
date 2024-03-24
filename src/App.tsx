@@ -27,7 +27,7 @@ function App() {
 
             setSelectedProperty(foundResult ?? undefinedDisplay);
         }
-    }, [searchValue]);
+    }, [searchValue, json]);
 
     useEffect(() => {
         setSearchValue(selectedPath);

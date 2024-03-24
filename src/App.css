@@ -17,6 +17,7 @@ input {
     padding: 1rem;
     border: 1px solid lightgray;
     border-radius: 0.25rem;
+    font-family: monospace;
 }
 
 .input-group {
@@ -27,7 +28,9 @@ input {
 
 .display-result {
     height: 2rem;
+    font-family: monospace;
 }
+
 h4 {
     margin: 0 0 2rem 3rem;
     font-weight: 600;
