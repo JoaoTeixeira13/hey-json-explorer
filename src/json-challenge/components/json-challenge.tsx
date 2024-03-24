@@ -1,3 +1,4 @@
+import "./json-challenge.css";
 import { useEffect, useState } from "react";
 import demoData from "./../test-data/demo-data.json";
 //import secondDemoData from "./../test-data/second-demo-data.json";
@@ -38,6 +39,7 @@ export const JsonChallenge = () => {
                 <div>
                     <p>Property</p>
                     <input
+                        className="json-input"
                         value={searchValue}
                         onChange={(e) => {
                             setSelectedPath(e.target.value);
@@ -48,7 +50,8 @@ export const JsonChallenge = () => {
                 </div>
                 <div>
                     <p>Block / Variable</p>
-                    <input placeholder="Variable" /> {" -"}
+                    <input placeholder="Variable" className="json-input" />{" "}
+                    {" -"}
                 </div>
             </section>
 
