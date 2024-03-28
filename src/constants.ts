@@ -4,7 +4,7 @@ export const undefinedDisplay = "undefined";
 
 export enum Bracket {
     ArrayOpen = "[",
-    ArrayClose = "],",
+    ArrayClose = "]",
     ObjectOpen = "{",
-    ObjectClose = "},",
+    ObjectClose = "}",
 }

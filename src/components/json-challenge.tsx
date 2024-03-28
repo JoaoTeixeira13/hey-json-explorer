@@ -1,7 +1,7 @@
 import "./json-challenge.css";
 import { useEffect, useState } from "react";
-import demoData from "./../test-data/demo-data.json";
-//import secondDemoData from "./../test-data/second-demo-data.json";
+//import demoData from "./../test-data/demo-data.json";
+import secondDemoData from "./../test-data/second-demo-data.json";
 import { JsonExplorer, KeyValuePair } from "./json-explorer";
 import { initialSearchValue, rootPath, undefinedDisplay } from "../constants";
 import { readJsonProperties } from "../utils/read-json-properties";
@@ -10,7 +10,7 @@ export const JsonChallenge = () => {
     //to experiment with different data types we can initialize our json here
     //for an alternativite test case initialize the json as 'secondDemoData', further indention, data types, etc
 
-    const [json] = useState<KeyValuePair>(demoData);
+    const [json] = useState<KeyValuePair>(secondDemoData);
 
     const [selectedProperty, setSelectedProperty] = useState<string>("");
 

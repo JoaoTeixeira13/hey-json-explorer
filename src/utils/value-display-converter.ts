@@ -9,11 +9,11 @@ export const valueDisplayConverter = (
     const shouldBeDisplayedAsString = typeof value === "string";
 
     if (shouldBeConverted) {
-        valueDisplay = ` ${value.toString()},`;
+        valueDisplay = ` ${value.toString()}`;
     }
 
     if (shouldBeDisplayedAsString) {
-        valueDisplay = ` '${value}',`;
+        valueDisplay = ` '${value}'`;
     }
     return valueDisplay;
 };

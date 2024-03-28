@@ -28,7 +28,7 @@ export const JsonExplorer = ({
 
     return (
         <pre>
-            {entries.map(([key, value]) => (
+            {entries.map(([key, value], index) => (
                 <span key={key} className="display-linebreak">
                     {typeof value === "object" ? (
                         <NestedElement
@@ -47,6 +47,7 @@ export const JsonExplorer = ({
                             handleKeyClick={handleKeyClick}
                         />
                     )}
+                    {index !== entries.length - 1 && ","}
                 </span>
             ))}
         </pre>
